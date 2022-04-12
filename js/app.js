@@ -9,10 +9,12 @@ Test this function by hand in the console to get it working, and when you think 
 
 // Write your code here
 function sum(a, b) { //eslint-disable-line
-    let sum =a + b;
-    let str = `The sum of ${a} and ${b} is ${sum}.`;
-    return [sum, str];
+    let numSum = a + b;
+    let str = `The sum of ${a} and ${b} is ${numSum}.`;
+    return [numSum, str];
 }
+sum()
+//I HAD ORIGINALLY USED sum AS THE NAME OF MY FUNCTION AND sum AS THE NAME OF THE VARIABLE IT WAS USING INTERNALLY.  WHILE THIS MADE PERFECT SENSE TO ME WITHIN THE CONFINES OF THIS ONE FUNCTION, IT MADE THINGS CONFUSING AS I TRIED TO REFERENCE THINGS ELSEWARE.  I THEN CHANGED THE FUNCTION NAME AND BROKE THE TESTER.
 
 // Here is the test for sum(); uncomment it to run it
 testSum(4, 7);
@@ -34,6 +36,7 @@ function multiply(a, b) { //eslint-disable-line
     return [product, str];
 
 }
+multiply()
 
 // Here is the test for multiply(); uncomment it to run it
 testMultiply(5,9);
@@ -51,13 +54,31 @@ IMPORTANT DETAIL: You may not use the arithmetic operators + and * in this funct
 
 Test this function by hand in the console to get it working, and when you think it is finished, uncomment the call for the testSumAndMultiply() function and see if the test passes.*/
 
+// HERE IS HOW I WOULD DO THIS WITHOUGH REUSING THE FUNCTIONS ABOVE.
+// function SumAndMultiply(a, b, c) { //eslint-disable-line
+//     let sum = a + b + c;
+//     let product = a * b * c;
+//     let sumStr = `The sum of ${a}, ${b}, and ${c} is ${sum}.`;
+//     let prodStr = `The product of ${a}, ${b}, and ${c} is ${product}.`;
+//     return [sum, sumStr, product, prodStr];
+// }
+
 // Write your code here
-function sumAndMultiply(a, b, c) { //eslint-disable-line
 
+function sumAndMultiply(a, b, c) { //eslint-disable-line  
+    let sum1 = sum(a, b)[0];
+    let sum2 = sum(sum1, c)[0];
+    let product1 = multiply(a, b)[0];
+    let product2 = multiply(product1, c)[0];
+    //let sumStr = `The sum of ${a}, ${b}, and ${c} is ${sum2}.`;
+    //let prodStr = `The product of ${a}, ${b}, and ${c} is ${product2}.`;
+    let sumStr = a + ' and ' + b +' and ' + c +' sum to '+ sum2 +'.';
+    let prodStr = 'The product of ' + a + ' and ' + b +' and ' + c +' is '+ product2 +'.';
+    return [sum2, sumStr, product2, prodStr];
 }
-
+sumAndMultiply()
 // Here is the test for sumAndMultiply(); uncomment it to run it
-// testSumAndMultiply(4,7,5);
+testSumAndMultiply(4,7,5);
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. Don't forget to create a new branch for your work on the next question!
 
@@ -76,11 +97,21 @@ let testArray = [2, 3, 4]; //eslint-disable-line
 
 function sumArray(sumArr) { //eslint-disable-line
 
+
+//NOT MY CODE....  EXAMPLE FROM CLASS
+// function sumArray(sumArr) { //eslint-disable-line
+//     let (sum = 0);
+//     for (let i = 0; i < sumArr.length; i++){
+//         let currentNumber = sumArr[i];
+//         sum += currentNumber;
+//         }
+//     return [sum, `${sumArr[0]}, ${sumArr[1]}, ${sumArr[0]} was passed in as an array of numbers and ${sum} is their sum.`]    
+
 }
+//sumArray()
+//Here is the test for sumArray(); uncomment it to run it
 
-// Here is the test for sumArray(); uncomment it to run it
-
-// testSumArray(testArray);
+//testSumArray(testArray);
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. Don't forget to create a new branch for your work on the next question!
 
