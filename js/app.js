@@ -17,7 +17,7 @@ function sum(a, b) { //eslint-disable-line
     print = [numSum, str];
     return (print) //[numSum, str];  //code after the return is unreachable by the function
 }
-sum()
+
 //I HAD ORIGINALLY USED sum AS THE NAME OF MY FUNCTION AND sum AS THE NAME OF THE VARIABLE IT WAS USING INTERNALLY.  WHILE THIS MADE PERFECT SENSE TO ME WITHIN THE CONFINES OF THIS ONE FUNCTION, IT MADE THINGS CONFUSING AS I TRIED TO REFERENCE THINGS ELSEWHERE.  I THEN CHANGED THE FUNCTION NAME AND BROKE THE TESTER.
 
 // Here is the test for sum(); uncomment it to run it
@@ -42,7 +42,6 @@ function multiply(a, b) { //eslint-disable-line
     print = [product, str];
     return (print);
 }
-multiply()
 
 // Here is the test for multiply(); uncomment it to run it
 testMultiply(5, 9);
@@ -82,7 +81,7 @@ function sumAndMultiply(a, b, c) { //eslint-disable-line
     print = [sum2, product2, sumStr, prodStr];  //returns all requests to a console.log
     return (print);  //returns all requests as an array
 }
-sumAndMultiply()
+
 // Here is the test for sumAndMultiply(); uncomment it to run it
 testSumAndMultiply(4, 7, 5);
 console.log(print);
@@ -135,7 +134,6 @@ function sumArray(sumArr = [0]) { //eslint-disable-line
     return (print);
 }
 
-sumArray()
 //Here is the test for sumArray(); uncomment it to run it
 testSumArray(testArray);
 console.log(print);
