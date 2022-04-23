@@ -55,30 +55,39 @@ IMPORTANT DETAIL: You may not use the arithmetic operators + and * in this funct
 Test this function by hand in the console to get it working, and when you think it is finished, uncomment the call for the testSumAndMultiply() function and see if the test passes.*/
 
 // HERE IS HOW I WOULD DO THIS WITHOUGH REUSING THE FUNCTIONS ABOVE.
-// function SumAndMultiply(a, b, c) { //eslint-disable-line
+// function sumAndMultiply(a, b, c) { //eslint-disable-line
 //     let sum = a + b + c;
 //     let product = a * b * c;
-//     let sumStr = `The sum of ${a}, ${b}, and ${c} is ${sum}.`;
-//     let prodStr = `The product of ${a}, ${b}, and ${c} is ${product}.`;
-//     return [sum, sumStr, product, prodStr];
+//     let sumStr = `${a} and ${b} and ${c} sum to ${sum}.`;
+//     let prodStr = `The product of ${a} and ${b} and ${c} is ${product}.`;
+//     return [sum, product, sumStr, prodStr];
 // }
 
-// Write your code here
-
+// THIS ONE KEPT FAILING AND WAS REALLY FRUSTRATED ME.  AT FIRST I HAD WRITTEN THE RETURN STRINGS WRONG.  THEN I HAD THE ARRAY STORED OUT OF ORDER.  EXACTLY MEANS EXACTLY HUH?
 function sumAndMultiply(a, b, c) { //eslint-disable-line  
     let sum1 = sum(a, b)[0];
     let sum2 = sum(sum1, c)[0];
     let product1 = multiply(a, b)[0];
     let product2 = multiply(product1, c)[0];
-    //let sumStr = `The sum of ${a}, ${b}, and ${c} is ${sum2}.`;
-    //let prodStr = `The product of ${a}, ${b}, and ${c} is ${product2}.`;
     let sumStr = a + ' and ' + b +' and ' + c +' sum to '+ sum2 +'.';
     let prodStr = 'The product of ' + a + ' and ' + b +' and ' + c +' is '+ product2 +'.';
-    return [sum2, sumStr, product2, prodStr];
+    return [sum2, product2, sumStr, prodStr];
 }
 sumAndMultiply()
 // Here is the test for sumAndMultiply(); uncomment it to run it
 testSumAndMultiply(4,7,5);
+
+
+//I WENT AND LOOKED AT OTHER PEOPLE'S WORK TO TRY TO FIGURE OUT WHAT I HAD DONE WRONG AND LEARNED THAT I COULD NEST ALL OF THIS.
+// HOW MOST CLASSMATES DID IT
+// let newSum = sum(a, sum(b,c)[0])[0];
+// let newProduct = multiply(a, multiply(b,c)[0])[0];
+
+// HOW GUY DID IT
+// let sum1 = sum(a, b)[0];
+// let finalSum = sum(sum1, c)[0];
+// let product1 = multiply(a, b)[0];
+// let finalProduct = multiply(product1, c)[0];
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. Don't forget to create a new branch for your work on the next question!
 
