@@ -11,7 +11,7 @@ Test this function by hand in the console to get it working, and when you think 
 
 // Write your code here
 function sum(a, b) { //eslint-disable-line
-    console.log(`Function "sum" has started for Problem 1.`)
+    //console.log(`Function "sum" has started for Problem 1.`)
     let numSum = a + b;
     let str = `The sum of ${a} and ${b} is ${numSum}.`;
     print = [numSum, str];
@@ -36,7 +36,7 @@ Test this function by hand in the console to get it working, and when you think 
 
 // Write your code here
 function multiply(a, b) { //eslint-disable-line
-    console.log(`Function "multiply" has started for Problem 2.`)
+    //console.log(`Function "multiply" has started for Problem 2.`)
     let product = a * b;
     let str = `The product of ${a} and ${b} is ${product}.`;
     print = [product, str];
@@ -72,7 +72,7 @@ Test this function by hand in the console to get it working, and when you think 
 
 // THIS ONE KEPT FAILING AND WAS REALLY FRUSTRATED ME.  AT FIRST I HAD WRITTEN THE RETURN STRINGS WRONG.  THEN I HAD THE ARRAY STORED OUT OF ORDER.  EXACTLY MEANS EXACTLY HUH?
 function sumAndMultiply(a, b, c) { //eslint-disable-line  
-    console.log(`Function "sumAndMultiply" has started for Problem 3.`)
+    //console.log(`Function "sumAndMultiply" has started for Problem 3.`)
     let sum1 = sum(a, b)[0];
     let sum2 = sum(sum1, c)[0];
     let product1 = multiply(a, b)[0];
@@ -125,13 +125,13 @@ let testArray = [2, 3, 4]; //eslint-disable-line
 //let sumArray = sum(testArray[0], sum(testArray[1],testArray[2])[0])[0];
 
 function sumArray(sumArr = [0]) { //eslint-disable-line
-    console.log(`Function "sumArray" has started for Problem 4.`)
+    //console.log(`Function "sumArray" has started for Problem 4.`)
     let arraySum = 0;
     for (let i = 0; i < sumArr.length; i++) {
         arraySum = sum(arraySum, sumArr[i])[0];
-        console.log(arraySum);
+        //console.log(arraySum);
     }
-    print = [arraySum, `${sumArr[0]},${sumArr[1]},${sumArr[2]} was passed in as an array of numbers, and ${arraySum} is their sum.`];
+    print = [arraySum, `${sumArr[0]},${sumArr[1]},${sumArr[2]} was passed in as an array of numbers, and ${arraySum} is their sum.`];  //Why didn't I realize I could just
     return (print);
 }
 
@@ -154,13 +154,13 @@ Test this function by hand in the console to get it working, and when you think 
 
 // Write your code here
 function multiplyArray(multArr) { //eslint-disable-line
-    console.log(`Function "multiplyArray" has started for Problem 5.`)
-    let arrayProd = multArr[0];
-    for (let i = 1; i < multArr.length; i++) {
+    //console.log(`Function "multiplyArray" has started for Problem 5.`)
+    let arrayProd = 1;  //starting with 0 like most variables corrupted my multiplication attempts.
+    for (let i = 0; i < multArr.length; i++) {
         arrayProd = multiply(arrayProd, multArr[i])[0];
-        console.log(arrayProd);
+        //console.log(arrayProd);
     }
-    print = [arrayProd, `The numbers ${multArr[0]},${multArr[1]},${multArr[2]} have a product of ${arrayProd}.`];
+    print = [arrayProd, `The numbers ${multArr} have a product of ${arrayProd}.`];
     return (print);
 }
 
@@ -189,12 +189,19 @@ Test this function by hand in the console to get it working, and when you think 
 // Write your code here
 let testDynamicArray = [1, 2, 3, 4, 5]; //eslint-disable-line
 
-function multiplyAnyArray(dynamicArray) { //eslint-disable-line
-
+function multiplyAnyArray(dynamicArray) { //eslint-disable-line         //This is pretty much my same function I used on question 5...  what have I done wrong?
+    //console.log(`Function "dynamicArray" has started for Problem 6.`)
+    let arrayProd = dynamicArray[0];                    //Instead of starting at 0 why not load my first number out of my array?
+    for (let i = 1; i < dynamicArray.length; i++) {     //but then i had to start my index at 1 since the value of [0] was already loaded into my equation.
+        arrayProd = multiply(arrayProd, dynamicArray[i])[0];
+        //console.log(arrayProd);
+    }
+    print = [arrayProd, `The numbers ${dynamicArray} have a product of ${arrayProd}.`];
+    return (print);
 }
 
 // Here is the test for multiplyArray(); uncomment it to run it
-// testMultiplyAnyArray(testDynamicArray);
-// console.log(print);
+testMultiplyAnyArray(testDynamicArray);
+console.log(print);
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. You're done! Submit the link to the repo following the instructions in Canvas.
